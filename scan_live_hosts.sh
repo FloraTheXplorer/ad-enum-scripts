@@ -9,9 +9,10 @@ mkdir -p "$OUTPUT_DIR"
 # Define the nmap scans to run
 SCANS=(
   "-Pn -sV --top-ports 50 --open" # quick scan
-  "-Pn --script smb-vuln* -p139,445"  # search smb vuln
-  "-Pn -sC -sV -p-"  # full scan
-  "-sU -sC -sV"  # udp scan
+  "-Pn -sC -sV -p "20-25,53,80,88,135,139,443,445""  #TCP scan 
+  "-Pn --script vuln -sV -p "20-25,53,80,88,135,139,443,445"" #scans for known vulnerabilites
+  "-Pn -sC -sV -p-"  #full scan, will take some time
+  "-sU -sV --top-ports 20"  # udp scan, will also take some time
 )
 
 # Function to run scans
