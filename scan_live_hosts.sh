@@ -1,8 +1,5 @@
 #!/bin/bash
 
-# Set the network range to scan
-NETWORK_RANGE="192.168.56.0/24"  # Replace with your network range
-
 # Set the output directory for the scan results
 OUTPUT_DIR="/root/nmap_scans_grouped"
 LIVE_HOSTS_FILE="${OUTPUT_DIR}/live_hosts.txt"
