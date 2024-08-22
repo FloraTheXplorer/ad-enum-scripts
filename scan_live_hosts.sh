@@ -11,7 +11,7 @@ SCANS=(
   "-Pn -sV --top-ports 50 --open" # quick scan
   "-Pn --script smb-vuln* -p139,445"  # search smb vuln
   "-Pn -sC -sV -p-"  # full scan
-#  "-sU -sC -sV"  # udp scan
+  "-sU -sC -sV"  # udp scan
 )
 
 # Function to run scans
