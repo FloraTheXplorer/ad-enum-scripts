@@ -15,10 +15,3 @@ nmap -sn $NETWORK_RANGE > "${OUTPUT_DIR}/nmap_output.txt"
 
 # Extract live hosts from the nmap output
 grep "Nmap scan report for" "${OUTPUT_DIR}/nmap_output.txt" | awk '{print $5}' > "$LIVE_HOSTS_FILE"
-
-# Check if the live hosts file is empty and retry the scan if necessary
-if [ ! -s "$LIVE_HOSTS_FILE" ]; then
-  echo "No live hosts found, retrying the scan..."
-  nmap -sn $NETWORK_RANGE > "${OUTPUT_DIR}/nmap_output.txt"
-  grep "Nmap scan report for" "${OUTPUT_DIR}/nmap_output.txt" | awk '{print $5}' > "$LIVE_HOSTS_FILE"
-fi
